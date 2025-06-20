@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "main": "calculator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo 'Building the project...'",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:e2e": "playwright test --config=playwright.config.js"
   },
-  "author": "",
+  "author": "nonocro",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "eslint": "^9.29.0",
     "jest": "^30.0.2",
     "playwright": "^1.53.1"
+  },
+  "devDependencies": {
+    "globals": "^16.2.0"
   }
 }
