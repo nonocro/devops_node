@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+</head>
+<body>
+  <h1>Addition simple</h1>
+  <input id="input-a" type="number" placeholder="Premier nombre">
+  <input id="input-b" type="number" placeholder="Deuxieme nombre">
+  <button id="sum-btn">Sum</button>
+  <div id="result"></div>
+  <script>
+    document.getElementById("sum-btn").onclick = async () => {
+      const a = document.getElementById("input-a").value;
+      const b = document.getElementById("input-b").value;
+      const res = await fetch("/api/sum", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ a, b })
+      });
+      const data = await res.json();
+      document.getElementById("result").textContent = data.result;
+    };
+  </script>
+</body>
+</html>
